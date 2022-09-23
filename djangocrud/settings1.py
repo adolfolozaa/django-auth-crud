@@ -23,20 +23,20 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-gcdm7*$6c=@$jq-z88m7)*-_3j&(+l51_(g%^2tzn&_1*xb@@!'
-###SECRET_KEY = os.environ.get('SECRET_KEY', default='your secret key')
+###SECRET_KEY = 'django-insecure-gcdm7*$6c=@$jq-z88m7)*-_3j&(+l51_(g%^2tzn&_1*xb@@!'
+SECRET_KEY = os.environ.get('SECRET_KEY', default='your secret key')
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-###DEBUG = 'RENDER' not in os.environ
+###DEBUG = True
+DEBUG = 'RENDER' not in os.environ
 
 
 ALLOWED_HOSTS = []
 
-###RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
-###if RENDER_EXTERNAL_HOSTNAME:
-###    ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
+RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
+if RENDER_EXTERNAL_HOSTNAME:
+    ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
 
 # Application definition
 
@@ -88,15 +88,13 @@ WSGI_APPLICATION = 'djangocrud.wsgi.application'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-    'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3', }
-        ###dj_database_url.config( 
-        ###    default='postgresql://postgres:postgres@localhost/postgres', conn_max_age=600)
+    'default': 
+    ###'ENGINE': 'django.db.backends.sqlite3',
+    ###    'NAME': BASE_DIR / 'db.sqlite3', }
+        dj_database_url.config( 
+            default='postgresql://postgres:postgres@localhost/postgres', conn_max_age=600)
 
-        
-
-    }
+        }
 
 
 
@@ -136,12 +134,12 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-"""if not DEBUG:    # Tell Django to copy statics to the `staticfiles` directory
+if not DEBUG:    # Tell Django to copy statics to the `staticfiles` directory
     # in your application directory on Render.
     STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
     # Turn on WhiteNoise storage backend that takes care of compressing static files
     # and creating unique names for each version so they can safely be cached forever.
-    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'"""
+    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 LOGIN_URL = '/signin/'
 # Default primary key field type
