@@ -17,17 +17,17 @@
                         <h1 class="fw-bold">{{task.title}}</h1>
                         {% endif %}
                         <p>by {{task.user.username}}</p>
-
+                
                     </header>
                     <p>{{task.description}}</p>
-                
-
+                    <p style="text-align:left">duedate: {{task.duedate}}</p>
+                    <p style="text-align:right">created: {{task.created}}</p>
+                    <p style="text-align:right">completed: {{task.datecompleted}}</p>
                 </a>
                 {% endfor %}
             </ul>
         </div>
     </div>
 </main>
-
 
 {% endblock %}
