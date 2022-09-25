@@ -3,3 +3,4 @@
 # django-crud-auth3
 # django-crud-auth4
 # django-crud-auth3
+# crud2
