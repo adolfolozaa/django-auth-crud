@@ -1,4 +1,3 @@
-
 from django.contrib import admin
 from django.urls import path
 from tasks import views
@@ -9,7 +8,6 @@ urlpatterns = [
     path('signup/', views.signup, name='signup'),
 
     path('tasks/', views.tasks, name='tasks'),
-    path('tasks/', views.todays, name='todays'),
 
     path('tasks_completed/', views.tasks_completed, name='tasks_completed'),
 

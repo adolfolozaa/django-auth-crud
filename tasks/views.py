@@ -44,7 +44,7 @@ def signup(request):
 @login_required
 def tasks(request):
     tasks = Task.objects.filter(user=request.user, datecompleted__isnull=True)
-    todays(request)
+
     return render(request, 'tasks.html',{'tasks':tasks})
 
 @login_required
@@ -125,11 +125,3 @@ def signin(request):
         else:
             login(request, user)
             return redirect('tasks')
-
-
-@login_required
-def todays(request):
-    today = str(timezone.now())
-
-    print(today)
-    return (request,today)

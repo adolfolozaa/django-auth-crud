@@ -2,7 +2,6 @@
 
 {% block content %}
 
-
 <main class="container">
     <div class="row">
         <div class="col-md-6 offset-md-3">
@@ -21,21 +20,14 @@
 
                     </header>
                     <p>{{task.description}}</p>
-                    <p style="text-align:right">created: {{task.created}}</p>
-                    <p style="text-align:right" id="date">today: </p>
-                    <script>
-                        n =  new Date();
-                        y = n.getFullYear();
-                        m = n.getMonth() + 1;
-                        d = n.getDate();
-                        document.getElementById("date").innerHTML = m + "/" + d + "/" + y;
-                    </script>
-                    <p style="text-align:right">completed: {{task.datecompleted}}</p>
+                
+
                 </a>
                 {% endfor %}
             </ul>
         </div>
     </div>
 </main>
+
 
 {% endblock %}
