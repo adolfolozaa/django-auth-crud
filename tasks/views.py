@@ -44,7 +44,7 @@ def signup(request):
 @login_required
 def tasks(request):
     tasks = Task.objects.filter(user=request.user, datecompleted__isnull=True)
-
+    today= timezone.now()
     return render(request, 'tasks.html',{'tasks':tasks})
 
 @login_required
